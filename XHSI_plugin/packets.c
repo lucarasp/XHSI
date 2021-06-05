@@ -4347,7 +4347,7 @@ int createTcasPacket(void) {
         tcas_packet.tcas_entries[0].longitude = custom_htonf( (float)XPLMGetDatad(longitude) );
         tcas_packet.tcas_entries[0].elevation = custom_htonf( (float)XPLMGetDatad(msl) * 3.28084f );
 
-        for (i=1; i<total; i++) {
+        for (i=1; i<total && i<NUM_TCAS; i++) {
             x = XPLMGetDatad(multiplayer_x[i]);
             y = XPLMGetDatad(multiplayer_y[i]);
             z = XPLMGetDatad(multiplayer_z[i]);
