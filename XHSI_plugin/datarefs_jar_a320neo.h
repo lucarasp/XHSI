@@ -34,17 +34,17 @@ extern XPLMDataRef jar_a320_neo_fd;
 
 // JARDesign A320Neo is using X-Plane flight director but there are datarefs...
 // FD Bars
-XPLMDataRef jar_a320_neo_fd_h_show;
+extern XPLMDataRef jar_a320_neo_fd_h_show;
 // integer
-XPLMDataRef jar_a320_neo_fd_pitch;
+extern XPLMDataRef jar_a320_neo_fd_pitch;
 // float
-XPLMDataRef jar_a320_neo_fd_v_show;
+extern XPLMDataRef jar_a320_neo_fd_v_show;
 // integer
-XPLMDataRef jar_a320_neo_fd_roll;
+extern XPLMDataRef jar_a320_neo_fd_roll;
 // float
-XPLMDataRef jar_a320_neo_fd_y_show;
+extern XPLMDataRef jar_a320_neo_fd_y_show;
 // integer
-XPLMDataRef jar_a320_neo_fd_yaw_dot;
+extern XPLMDataRef jar_a320_neo_fd_yaw_dot;
 // float
 
 
