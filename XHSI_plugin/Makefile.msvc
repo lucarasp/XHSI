@@ -1,0 +1,52 @@
+CC = cl
+CXX = cl
+LINK = link
+CFLAGS = /nologo /O2 /I.\SDK\CHeaders\XPLM -I.\SDK\CHeaders\Widgets -I.\SDK\CHeaders\Wrapper /MD
+CXXFLAGS = $(CFLAGS)
+CPPFLAGS = /D WIN32 /D IBM=1 /D XPLM200 /D XPLM210 /D XPLM300 /D XPLM301 /D XPLM303
+LDFLAGS = /nologo /DLL /LIBPATH:.\SDK\Libraries\Win
+LIBS = XPLM_64.lib XPWidgets_64.lib ws2_32.lib
+OUT = win.xpl
+
+.c.obj:
+	$(CC) $(CFLAGS) $(CPPFLAGS) /c $<
+	
+.cpp.obj:
+	$(CXX) $(CXXFLAGS) $(CPPFLAGS) /c $<
+
+obj_files = commands.obj \
+	datarefs.obj \
+	datarefs_cl30.obj \
+	datarefs_ff_a320.obj \
+	datarefs_jar_a320neo.obj \
+	datarefs_pa_a320.obj \
+	datarefs_pilotedge.obj \
+	datarefs_qpac.obj \
+	datarefs_ufmc.obj \
+	datarefs_x737.obj \
+	datarefs_x_raas.obj \
+	datarefs_xjoymap.obj \
+	datarefs_z737.obj \
+	endianess.obj \
+	jar_a320neo_msg.obj \
+	net.obj \
+	packets.obj \
+	plugin.obj \
+	pluginWin.obj \
+	qpac_msg.obj \
+	receiver.obj \
+	sender.obj \
+	settings.obj \
+	ufmc.obj \
+	ui.obj \
+	xfmc.obj \
+	xp11_cdu.obj \
+	z737_fmc.obj 
+
+all: $(obj_files)
+	$(LINK) @<<
+		$(LDFLAGS) /OUT:$(OUT) $(LIBS) $(obj_files)
+<<
+
+clean:
+	del $(obj_files) $(OUT) *.exp *.lib
