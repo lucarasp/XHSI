@@ -1,8 +1,8 @@
-CC ?= gcc
+CC ?= x86_64-apple-darwinXX-clang
 CFLAGS = -O2 -I./SDK/CHeaders/XPLM -I./SDK/CHeaders/Widgets -I./SDK/CHeaders/Wrapper -fPIC -Wall
-CPPFLAGS = -DLIN=1 -DXPLM200 -DXPLM210 -DXPLM300 -DXPLM301 -DXPLM303
+CPPFLAGS = -DAPL=1 -DXPLM200 -DXPLM210 -DXPLM300 -DXPLM301 -DXPLM303
 
-OUT = lin.xpl
+OUT = mac.xpl
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@
