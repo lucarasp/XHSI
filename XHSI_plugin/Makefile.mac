@@ -1,6 +1,7 @@
-CC ?= x86_64-apple-darwinXX-clang
+CC ?= x86_64-apple-darwin20.4-clang
 CFLAGS = -O2 -I./SDK/CHeaders/XPLM -I./SDK/CHeaders/Widgets -I./SDK/CHeaders/Wrapper -fPIC -Wall
 CPPFLAGS = -DAPL=1 -DXPLM200 -DXPLM210 -DXPLM300 -DXPLM301 -DXPLM303
+LDFLAGS= -F./SDK/Libraries/Mac -framework XPLM -framework XPWidgets
 
 OUT = mac.xpl
 
@@ -36,7 +37,7 @@ obj_files = commands.o \
 	z737_fmc.o 
 
 all: $(obj_files)
-	$(CC) -shared -o $(OUT) $(obj_files)
+	$(CC) -shared -o $(OUT) $(LDFLAGS) $(obj_files)
 
 clean:
 	rm -rf $(obj_files) $(OUT)
