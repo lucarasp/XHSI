@@ -627,9 +627,9 @@ int xp11_fms_type = 0;
 //XPLMDataRef relative_altitude_mtrs;
 
 // Multiplayer
-XPLMDataRef multiplayer_x[NUM_TCAS];
-XPLMDataRef multiplayer_y[NUM_TCAS];
-XPLMDataRef multiplayer_z[NUM_TCAS];
+XPLMDataRef multiplayer_lat[NUM_TCAS];
+XPLMDataRef multiplayer_lon[NUM_TCAS];
+XPLMDataRef multiplayer_ele[NUM_TCAS];
 
 
 // for the NAV-Sync button commands (Direct-to-VOR & Sync-LOC/ILS)
@@ -3864,14 +3864,14 @@ void findDataRefs(void) {
 
     // Multiplayer
 	for (i=1; i<NUM_TCAS; i++) {
-		sprintf(buf, "sim/multiplayer/position/plane%d_x", i);
-		multiplayer_x[i] = XPLMFindDataRef(buf);
+		sprintf(buf, "sim/cockpit2/tcas/targets/position/double/plane%d_lat", i);
+		multiplayer_lat[i] = XPLMFindDataRef(buf);
 
-		sprintf(buf, "sim/multiplayer/position/plane%d_y", i);
-		multiplayer_y[i] = XPLMFindDataRef(buf);
+		sprintf(buf, "sim/cockpit2/tcas/targets/position/double/plane%d_lon", i);
+		multiplayer_lon[i] = XPLMFindDataRef(buf);
 
-		sprintf(buf, "sim/multiplayer/position/plane%d_z", i);
-		multiplayer_z[i] = XPLMFindDataRef(buf);
+		sprintf(buf, "sim/cockpit2/tcas/targets/position/double/plane%d_ele", i);
+		multiplayer_ele[i] = XPLMFindDataRef(buf);
 	}
 
 	nav_type_ = XPLMFindDataRef("sim/cockpit/radios/nav_type");

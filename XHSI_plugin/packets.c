@@ -4320,7 +4320,7 @@ int createFmsPackets(void) {
 int createTcasPacket(void) {
 
     int i;
-    double x, y, z, lat, lon, elev;
+    double lat, lon, elev;
     int total;
     int active;
     XPLMPluginID who;
@@ -4348,10 +4348,9 @@ int createTcasPacket(void) {
         tcas_packet.tcas_entries[0].elevation = custom_htonf( (float)XPLMGetDatad(msl) * 3.28084f );
 
         for (i=1; i<total && i<NUM_TCAS; i++) {
-            x = XPLMGetDatad(multiplayer_x[i]);
-            y = XPLMGetDatad(multiplayer_y[i]);
-            z = XPLMGetDatad(multiplayer_z[i]);
-            XPLMLocalToWorld(x, y, z, &lat, &lon, &elev);
+            lat = XPLMGetDatad(multiplayer_lat[i]);
+            lon = XPLMGetDatad(multiplayer_lon[i]);
+            elev = XPLMGetDatad(multiplayer_ele[i]);
             tcas_packet.tcas_entries[i].latitude = custom_htonf( (float)lat );
             tcas_packet.tcas_entries[i].longitude = custom_htonf( (float)lon );
             tcas_packet.tcas_entries[i].elevation = custom_htonf( (float)elev * 3.28084f );

@@ -37,7 +37,7 @@ public class TCAS {
     public static final int TA = 4; // Traffic Advisory
     public static final int RA = 5; // Resolution Advisory
 
-    public static final int MAX_ENTRIES = 20;
+    public static final int MAX_ENTRIES = 64;
 
     // public use
     public boolean ra;

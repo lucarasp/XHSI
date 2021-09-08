@@ -7,7 +7,7 @@
 #define MAX_FMS_ENTRIES_POSSIBLE 500
 
 // number of TCAS entries
-#define NUM_TCAS 20
+#define NUM_TCAS 64
 
 
 // Packet data structures

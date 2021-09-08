@@ -609,9 +609,9 @@ extern int xp11_cdu_ready;
 extern int xp11_fms_type;
 
 // Multiplayer
-extern XPLMDataRef multiplayer_x[NUM_TCAS];
-extern XPLMDataRef multiplayer_y[NUM_TCAS];
-extern XPLMDataRef multiplayer_z[NUM_TCAS];
+extern XPLMDataRef multiplayer_lat[NUM_TCAS];
+extern XPLMDataRef multiplayer_lon[NUM_TCAS];
+extern XPLMDataRef multiplayer_ele[NUM_TCAS];
 
 
 // for the NAV-Sync button commands (Direct-to-VOR & Sync-LOC/ILS)
